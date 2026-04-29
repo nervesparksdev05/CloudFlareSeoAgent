@@ -253,14 +253,3 @@ Nexus crawls the site and returns structured SEO data per page, which is then fo
 **Why no FastAPI:** FastAPI + Pydantic initialization alone exceeds the 10ms CPU limit. The backend uses a minimal `WorkerEntrypoint` with a manual router instead, and keeps standard library imports at module level (run once at snapshot time).
 
 ---
-
-## Making It Fully Public (Future)
-
-To remove the dependency on your local machine:
-
-1. **Host Nexus on a VPS** — Hetzner CX22 (~€5/mo, 4GB RAM) is the minimum given browser pool memory requirements
-2. **Update `NEXUS_URL` in `streamlit_app.py`** — point to the VPS IP
-3. **Open port 9080** on the VPS firewall
-4. **Deploy Streamlit** — Streamlit Community Cloud (free) or Railway/Render
-
-**ngrok tip:** Free ngrok gives a new URL on each restart. Get a free static domain at `dashboard.ngrok.com` to avoid updating the URL constantly.
